@@ -1,0 +1,15 @@
+version: '2'
+services:
+  app:
+    build: app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/cacti_data
+    ports:
+      - "8090:8095"
+    depends_on:
+      - postgres
+  postgres:
+    build: postgres
+    environment:
+      -
+    #image: postgres

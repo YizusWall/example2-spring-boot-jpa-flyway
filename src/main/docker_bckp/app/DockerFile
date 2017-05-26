@@ -1,0 +1,6 @@
+
+FROM openjdk:8u111-jre-alpine
+VOLUME /tmp
+ADD yizus-dia5-0.0.1-SNAPSHOT.jar app.jar
+RUN sh -c 'touch /app.jar'
+ENTRYPOINT ["java","-java"]

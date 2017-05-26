@@ -6,9 +6,11 @@ services:
       # se sobrescribe la configuración para que apunte al contenedor, los
       # hostnames se agregan automáticamente en /etc/hosts de cada contenedor 
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/cacti_data 
+      - SPRING_DATASOURCE_USERNAME=cacti
+      - SPRING_DATASOURCE_PASSWORD=cacti
       - SPRING_RABBITMQ_HOST=rabbitmq
     ports: 
-      - "9080:9085" 
+      - "9080:7080" 
     depends_on: 
       - postgres 
       - rabbitmq

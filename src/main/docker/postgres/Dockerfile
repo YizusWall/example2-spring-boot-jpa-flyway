@@ -5,5 +5,5 @@
 
 COPY init-user-db.sh /docker-entrypoint-initdb.d/
 
-#   Para evitar problemas de ejecucion en windows
+# Para evitar problemas de ejecución en Windows
 RUN sh -c 'chmod +x /docker-entrypoint-initdb.d/*'

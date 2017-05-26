@@ -1,25 +1,0 @@
-version: '2' 
-services:
-  app:
-    build: app
-    environment:
-      # se sobrescribe la configuración para que apunte al contenedor, los
-      # hostnames se agregan automáticamente en /etc/hosts de cada contenedor 
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/cacti_data 
-      - SPRING_RABBITMQ_HOST=rabbitmq
-    ports: 
-      - "9080:9085" 
-    depends_on: 
-      - postgres 
-      - rabbitmq
-  postgres:
-    build: postgres
-    environment:
-      # le cambiamos el password al usuario de postgres
-      - POSTGRES_PASSWORD=secret
-    volumes:
-      - ../../postgres:/var/lib/postgresql/data
-  rabbitmq:
-    image: rabbitmq:3.6.6-management-alpine
-    ports:
-      - "15672:15672"
